@@ -1,3 +1,5 @@
+from random import *
+
 class Unit:
     def __init__(self, name, hp, speed):
         self.name = name
@@ -94,3 +96,54 @@ class wraith(FlyableAttackUnit):
         else:
             print("{0} : Turn on cloaking mode".format(self.name))
             self.clocked = True
+
+
+def game_start():
+    print("[notice] start a new game")
+
+def game_over():
+    print("player : gg")
+    print("[player] have exited the game")
+
+game_start()
+
+m1 = Marine()
+m2 = Marine()
+m3 = Marine()
+
+t1 = Tank()
+t2 = Tank()
+
+w1 = wraith()
+
+attack_units = []
+attack_units.append(m1)
+attack_units.append(m2)
+attack_units.append(m3)
+attack_units.append(t1)
+attack_units.append(t2)
+attack_units.append(w1)
+
+#army move
+for unit in attack_units:
+    unit.move("1 o'clock")
+
+#tank seize mode developed
+Tank.seize_developed = True
+print("[notice] Tank Seize mode development is complete")
+
+for unit in attack_units:
+    if isinstance(unit, Marine):
+        unit.stimpack()
+    elif isinstance(unit, Tank):
+        unit.set_seize_mode()
+    elif isinstance(unit, wraith):
+        unit.clocking()
+
+for unit in attack_units:
+    unit.attack("1 o'clock")
+
+for unit in attack_units:
+    unit.damaged(randint(5, 20))
+
+game_over()
