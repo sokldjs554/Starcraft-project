@@ -5,7 +5,7 @@ hp = 40 #unit health
 damage = 5 #unit combat power
 
 print("{0} unit is created.".format(name))
-print("health {0}, combat power {1}\n".format(hp, damage))
+print("health {0}, Striking power {1}\n".format(hp, damage))
 
 # tank : attack unit, can shoot pho, normal mode, siege mode
 
@@ -31,6 +31,5 @@ def attack(name, location, damage):
 attack(name, "1 o'clock", damage)
 attack(tank_name, "2 o'clock", tank_damage)
 attack(tank2_name, "2 o'clock", tank2_damage)
-
 
 
